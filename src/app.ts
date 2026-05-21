@@ -10,4 +10,5 @@ app.use(express.json());
 setupMiddlewares(app);
 setupRoutes(app);
 app.use(notFoundHandler);
+
 export { app };

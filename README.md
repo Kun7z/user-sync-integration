@@ -170,7 +170,7 @@ npm run dev
 ou
 
 ```bash
-ts-node src/main.ts
+npm run start
 ```
 
 ---
