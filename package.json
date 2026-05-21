@@ -11,8 +11,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
-    "build": "tsc",
-    "start": "node dist/main.js"
+    "start": "ts-node src/main.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "knex": "^3.2.10",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^6.0.1",
+    "ts-node": "^10.9.2"
   }
 }
