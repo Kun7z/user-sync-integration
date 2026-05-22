@@ -15,6 +15,8 @@ export const userRepository = {
   },
 
   async update(email: string, user: FormattedUser) {
-    return db("users").where({ email }).update(user);
+    return db("users")
+      .where({ email })
+      .update({ ...user, updatedAt: new Date().toISOString() });
   },
 };

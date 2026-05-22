@@ -8,7 +8,6 @@ import {
 const usersRoutes = Router();
 
 usersRoutes.get("/", getUsers);
-
 usersRoutes.post("/sync", syncUsersController);
 
 export { usersRoutes };

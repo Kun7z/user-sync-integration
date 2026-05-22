@@ -2,11 +2,11 @@ import axios from "axios";
 import fs from "fs";
 import path from "path";
 import { userRepository } from "./user.repository";
-import { Report } from "../../types/index";
+import { FormattedUser, Report } from "../../types/index";
+
+const start = Date.now();
 
 export async function syncUsersService(): Promise<Report | void> {
-  const start = Date.now();
-
   const report: Report = {
     timestamp: new Date().toISOString(),
     totalFetched: 0,
@@ -15,6 +15,8 @@ export async function syncUsersService(): Promise<Report | void> {
     ignored: 0,
     errors: 0,
     durationMs: 0,
+    updatedEmails: [],
+    errorEmails: [],
   };
 
   try {
@@ -32,7 +34,7 @@ export async function syncUsersService(): Promise<Report | void> {
           continue;
         }
 
-        const formattedUser = {
+        const formattedUser: FormattedUser = {
           email: user.email,
           gender: user.gender,
           title: user.name.title,
@@ -54,6 +56,7 @@ export async function syncUsersService(): Promise<Report | void> {
         if (exists) {
           await userRepository.update(formattedUser.email, formattedUser);
           report.updated++;
+          report.updatedEmails.push(user.email);
         } else {
           await userRepository.create(formattedUser);
           report.inserted++;
@@ -61,6 +64,7 @@ export async function syncUsersService(): Promise<Report | void> {
       } catch (err) {
         console.log(err);
         report.errors++;
+        report.errorEmails.push({ email: user.email, error: err });
       }
     }
 

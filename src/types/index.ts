@@ -6,8 +6,14 @@ export type Report = {
   ignored: number;
   errors: number;
   durationMs: number;
+  updatedEmails: string[];
+  errorEmails: ErrorEmails[];
 };
 
+export type ErrorEmails = {
+  email: string;
+  error: any;
+};
 export type User = {
   gender: string;
   name: {

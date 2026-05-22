@@ -1,10 +1,10 @@
-# 🚀 User Sync Integration (Node.js + SQLite)
+# User Sync Integration (Node.js + SQLite)
 
 Projeto de integração que consome a API RandomUser, processa os dados, persiste em banco SQLite e gera relatórios de sincronização.
 
 ---
 
-## 📌 Objetivo
+## Objetivo
 
 Simular um sistema de sincronização de usuários:
 
@@ -17,7 +17,7 @@ Simular um sistema de sincronização de usuários:
 
 ---
 
-## 🧰 Tecnologias
+## Tecnologias
 
 - Node.js
 - TypeScript
@@ -28,7 +28,7 @@ Simular um sistema de sincronização de usuários:
 
 ---
 
-## 📦 Instalação
+## Instalação
 
 ### 1. Clonar o projeto
 
@@ -55,7 +55,7 @@ e sete a porta para rodar a aplicação
 
 ---
 
-## 🗄️ Banco de Dados
+## Banco de Dados
 
 O projeto utiliza SQLite local.
 
@@ -67,7 +67,7 @@ src/storage/database.sqlite
 
 ---
 
-## ⚙️ Migrations
+## Migrations
 
 ### Criar migration
 
@@ -83,7 +83,7 @@ npx knex migrate:latest
 
 ---
 
-## 📡 API Externa
+## API Externa
 
 ```
 https://randomuser.me/api/?results=150
@@ -91,7 +91,7 @@ https://randomuser.me/api/?results=150
 
 ---
 
-## 🔁 Regras de negócio
+## Regras de negócio
 
 - Apenas usuários com 18 anos ou mais são processados
 - Email é chave primária
@@ -100,7 +100,7 @@ https://randomuser.me/api/?results=150
 
 ---
 
-## 🌐 Endpoints
+## Endpoints
 
 ### POST /users/sync
 
@@ -132,7 +132,7 @@ Retorna:
 
 ---
 
-## 📊 Relatório
+## Relatório
 
 Gera:
 
@@ -145,7 +145,7 @@ Gera:
 
 ---
 
-## 📝 Logs
+## Logs
 
 Local:
 
@@ -161,7 +161,7 @@ report-{timestamp}.json
 
 ---
 
-## ▶️ Execução
+## Execução
 
 ```bash
 npm run dev
@@ -175,6 +175,6 @@ npm run start
 
 ---
 
-## 👨‍💻 Eric Matheus Kuntz Thibes
+## Autor: Eric Matheus Kuntz Thibes
 
 Desafio técnico de integração de sistemas.

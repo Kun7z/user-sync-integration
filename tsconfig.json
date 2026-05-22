@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./dist",
     "target": "ES2020",
     "module": "Node16",
@@ -10,8 +10,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
 
-    "types": ["node"]
+    "types": ["jest", "node"],
+    "isolatedModules": true
   },
 
-  "include": ["src"]
+  "include": ["src", "tests", "**/*.spec.ts", "**/*.test.ts", "**/*.mock.ts"]
 }
