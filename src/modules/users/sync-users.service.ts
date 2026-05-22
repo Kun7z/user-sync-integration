@@ -17,6 +17,7 @@ export async function syncUsersService(): Promise<Report | void> {
     durationMs: 0,
     updatedEmails: [],
     errorEmails: [],
+    ignoredEmails: [],
   };
 
   try {
@@ -31,6 +32,10 @@ export async function syncUsersService(): Promise<Report | void> {
 
         if (age < 18) {
           report.ignored++;
+          report.ignoredEmails.push({
+            email: user.email,
+            reason: "Under age.",
+          });
           continue;
         }
 

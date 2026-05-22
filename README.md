@@ -175,6 +175,10 @@ npm run start
 
 ---
 
+## Explicação da execução dos testes em Jest.
+
+Foi algo que não foi pedido, mas era impossível eu testar o meu código com as regras de negócio solicitadas porque a randomuserAPI ela não me retornava algum usuário menor de 18 ou que pudesse dar errado a adesão no banco por falta de dados, por exemplo como a falta de um e-mail. Dado essa limitação só pude testar realizando testes em Jest para garantir que a minha funcionalidade agisse respeitando as regras de negócio solicitadas. Não fiz a cobertura de testes em todo o projeto porque como não foi algo pedido fiquei com receio de estar fazendo algo a mais que poderia me resultar em uma piora na avaliação. Dúvidas fico à disposição.
+
 ## Autor: Eric Matheus Kuntz Thibes
 
 Desafio técnico de integração de sistemas.

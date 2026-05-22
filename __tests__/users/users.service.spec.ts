@@ -73,7 +73,7 @@ describe("syncUsersService", () => {
       },
     ]);
   });
-  it("should register error when create fails due to missing email", async () => {
+  it("should register error when create fails due to missing email and add the email at .errorEmails", async () => {
     mockedAxios.get.mockResolvedValue({
       data: {
         results: [
@@ -107,6 +107,42 @@ describe("syncUsersService", () => {
       {
         email: undefined,
         error: expect.any(Error),
+      },
+    ]);
+  });
+  it("should ignore users under 18 years old and add the email of the ignored user at .ignoredEmails", async () => {
+    mockedAxios.get.mockResolvedValue({
+      data: {
+        results: [
+          {
+            email: "kid@test.com",
+            dob: { age: 16 },
+            name: { title: "Mr", first: "Kid", last: "User" },
+            gender: "male",
+            phone: "123",
+            cell: "456",
+            nat: "BR",
+            location: {},
+            login: {},
+            picture: {},
+            registered: {},
+          },
+        ],
+      },
+    } as any);
+
+    const report = await syncUsersService();
+
+    expect(report?.ignored).toBe(1);
+
+    expect(report?.inserted).toBe(0);
+
+    expect(report?.updated).toBe(0);
+
+    expect(report?.ignoredEmails).toEqual([
+      {
+        email: "kid@test.com",
+        reason: "Under age.",
       },
     ]);
   });

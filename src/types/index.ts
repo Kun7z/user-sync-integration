@@ -1,3 +1,5 @@
+import { StringLiteral } from "typescript";
+
 export type Report = {
   timestamp: string;
   totalFetched: number;
@@ -8,12 +10,19 @@ export type Report = {
   durationMs: number;
   updatedEmails: string[];
   errorEmails: ErrorEmails[];
+  ignoredEmails: IgnoredEmails[];
 };
 
 export type ErrorEmails = {
   email: string;
   error: any;
 };
+
+export type IgnoredEmails = {
+  email: string;
+  reason: string;
+};
+
 export type User = {
   gender: string;
   name: {
